@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/sc5-styleguide.css">
+  <style type="text/css">
+    .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+  </style>
+  <script src="/sc5-styleguide.vendor.js"></script>
+  <script src="/ui-bootstrap-custom-0.12.1.js"></script>
+  <script src="/ui-bootstrap-custom-tpls-0.12.1.js"></script>
+  <script src="/sc5-styleguide.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      angular.module('testApp', [
+        'ui.router',
+        'ui.bootstrap',
+        'sc5.styleguide'
+      ]).config(function($stateProvider, $locationProvider) {
+
+        $locationProvider.html5Mode(true);
+
+        $stateProvider
+          .state('app', {
+            template: '<div>App template</div>',
+            controller: function($rootScope) {
+
+            }
+          });
+      });
+    }());
+  </script>
+  <title>SC5-styleguide directive test app</title>
+  <base href="/" />
+</head>
+<body>
+  <div ui-view>
+    <tabset>
+      <tab heading="Main Area">
+        <div>
+          <p>Hello, this is main lorem ipsum</p>
+        </div>
+      </tab>
+      <tab heading="Style Guide" active="true">
+        <styleguide json-url="styleguide.json"></styleguide>
+      </tab>
+    </tabset>
+  </div>
+</body>
+</html>
